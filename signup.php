@@ -17,7 +17,17 @@
             display: flex;
             height: 100vh;
         }
-
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* Place the video behind other content */
+            object-fit: cover;
+            /* Ensure the video covers the entire screen */
+        }
         /* Left Side */
         .left-side {
             background-color: #1e1e1e; /* Slightly lighter than the body for contrast */
@@ -146,7 +156,7 @@
     $servername = "localhost";
     $username = "root";
     $password = ""; // Default XAMPP password
-    $dbname = "CarRentalSystem";
+    $dbname = "carrentalsystem";
 
     // Create a connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -244,8 +254,12 @@
             </div>
         </div>
     </div>
-    <div class="right-side">
-        <img src="photos/Porsche.jpeg" />
-    </div>
+   <div>
+    <!-- Video Background -->
+    <video class="video-background" autoplay loop muted>
+        <source src="photos/bmw.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+   </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Login Page</title>
     <style>
@@ -17,9 +18,18 @@
             height: 100vh;
         }
 
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+
         .left-side {
-            background-color: #1e1e1e;
-            width: 65%;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -116,6 +126,7 @@
         }
     </style>
 </head>
+
 <body>
     <?php
     // Initialize variables
@@ -125,7 +136,7 @@
     $servername = "localhost";
     $username = "root";
     $password = ""; // Default XAMPP password
-    $dbname = "CarRentalSystem";
+    $dbname = "carrentalsystem";
 
     // Create a connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -161,7 +172,10 @@
     // Close the connection
     $conn->close();
     ?>
-
+    <video class="video-background" autoplay loop muted>
+        <source src="photos/bmw.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <div class="left-side">
         <div class="login-box">
             <h2>Welcome!</h2>
@@ -172,30 +186,16 @@
             ?>
             <form method="POST">
                 <label for="email">Email:</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="name@example.com"
-                    required
-                />
+                <input type="email" id="email" name="email" placeholder="name@example.com" required />
                 <label for="password">Password:</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="••••••••"
-                    required
-                />
+                <input type="password" id="password" name="password" placeholder="••••••••" required />
                 <button type="submit">Login</button>
             </form>
             <div class="divider">
-                <span>Don't have an account? <a href="signup.php">Sign up</a></span>
+                <span><br>Don't have an account? <a href="signup.php"><br>Sign up</a></span>
             </div>
         </div>
     </div>
-    <div class="right-side">
-        <img src="photos/Porsche.jpeg" />
-    </div>
 </body>
+
 </html>

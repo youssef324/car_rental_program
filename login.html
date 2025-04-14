@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #358faa;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            /* Prevent scrolling */
+        }
+        
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+        
+        .left-side {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .login-box {
+            padding: 2em;
+            border-radius: 10px;
+            width: px;
+            background-color: rgba(30, 30, 30, 0.9);
+            /* Add transparency */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            z-index: 1;
+            /* Ensure it appears above the video */
+        }
+        
+        .login-box h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #358faa;
+        }
+        
+        .login-box label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+            color: #358faa;
+        }
+        
+        .login-box input[type="email"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #333;
+            background-color: #262626;
+            color: #358faa;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .login-box button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.1em;
+            color: #121212;
+            background-color: #358faa;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 15px 0;
+        }
+        
+        h1 {
+            margin: 1ch;
+            padding-top: 10px;
+            font-size: 3.5em;
+            text-align: center;
+            color: #00bfff;
+            text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff;
+        }
+        
+        .login-box button[type="submit"]:hover {
+            opacity: 0.8;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #358faa;
+            font-size: 0.9em;
+            margin: 20px 0;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #333;
+            margin: 0 10px;
+        }
+        
+        .divider a {
+            color: whitesmoke;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Video Background -->
+    <video class="video-background" autoplay loop muted>
+        <source src="photos/bmw.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="left-side">
+        <div class="login-box">
+            <h2>Welcome!</h2>
+
+            <form method="POST">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required />
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required />
+                <button type="submit" href="homep.html">Login</button>
+            </form>
+            <div class="divider">
+                <span> <br>Don't have an account?  <a href="signup.html"><br>Sign up</a></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
