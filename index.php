@@ -128,6 +128,22 @@
 </head>
 
 <body>
+     <div class="left-side">
+        <div class="login-box">
+            <h2>Welcome!</h2>
+
+            <form method="POST">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required />
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required />
+                <button type="submit" href="homep.html">Login</button>
+            </form>
+            <div class="divider">
+                <span> <br>Don't have an account?  <a href="signup.html"><br>Sign up</a></span>
+            </div>
+        </div>
+    </div>
     <?php
     // Initialize variables
     $errorMessage = "";
