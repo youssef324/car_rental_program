@@ -181,7 +181,7 @@
 
         if ($conn->query($sql) === TRUE) {
             // Redirect to the home page upon successful signup
-            header("Location: homep.html");
+            header("Location: index.php");
             exit();
         } else {
             $errorMessage = "Error: " . $sql . "<br>" . $conn->error;
