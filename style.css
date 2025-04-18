@@ -16,6 +16,11 @@ body {
     position: relative;
 }
 
+a {
+    text-decoration: none;
+    color: initial;
+}
+
 
 /* Fullscreen background image */
 
@@ -37,7 +42,7 @@ h1 {
     font-size: 3.5em;
     text-align: center;
     color: #4b01e9;
-    text-shadow: 0 0 10px #171160, 0 0 20px #134657, 0 0 30px #00bfff;
+    text-shadow: 0 0 10px #8b28af, 0 0 20px #6e14bc, 0 0 30px #00bfff;
     transition: all 0.5s ease;
 }
 

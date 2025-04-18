@@ -1,0 +1,213 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #358faa;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+}
+
+.header-h1 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.5em;
+    text-align: center;
+    color: #731290;
+    text-shadow: 0 0 10px #171160, 0 0 20px #134657, 0 0 30px #00bfff;
+    margin: 0;
+    transition: all 0.5s ease;
+}
+
+p {
+    opacity: 0;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: larger;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #fff;
+    margin: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.social-circle {
+    opacity: 0;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body:hover h1 {
+    top: 15%;
+    transform: translateX(-50%);
+}
+
+body:hover p {
+    opacity: 1;
+    top: 30% !important;
+}
+
+body:hover .social-circle {
+    opacity: 1;
+    top: 55%;
+}
+
+
+/* Social Media Circle */
+
+.quarter {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar {
+    position: fixed;
+    top: 12%;
+    left: 0;
+    width: 65px;
+    height: 80%;
+    background: linear-gradient(135deg, #358faa, #007b8f);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    transition: width 0.3s;
+}
+
+.sidebar:hover {
+    width: 100px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 10px -10px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.3s;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+
+/* Positioning the quarters */
+
+.facebook {
+    top: 0;
+    left: 0;
+}
+
+.instagram {
+    top: 0;
+    right: 0;
+}
+
+.twitter {
+    bottom: 0;
+    left: 0;
+}
+
+.whatsapp {
+    bottom: 0;
+    right: 0;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+/* Hover effects */
+
+.facebook:hover {
+    background-color: #1877F2;
+    /* Facebook blue */
+}
+
+.instagram:hover {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+}
+
+.twitter:hover {
+    background-color: #1DA1F2;
+    /* Twitter blue */
+}
+
+.whatsapp:hover {
+    background-color: #25D366;
+    /* WhatsApp green */
+}
+
+.quarter i {
+    font-size: 40px;
+    color: white;
+}
+
+
+/* Add dividing lines */
+
+.social-circle::before,
+.social-circle::after {
+    content: '';
+    position: absolute;
+    background-color: #1e1e1e;
+    z-index: 1;
+}
+
+.social-circle::before {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-1px);
+}
+
+.social-circle::after {
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-1px);
+}

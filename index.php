@@ -129,13 +129,15 @@
 
 <body>
     <?php
+    session_start(); // Start the session
+    
     // Initialize variables
     $errorMessage = "";
 
     // Database connection parameters
     $servername = "localhost";
     $username = "root";
-    $password = ""; // Default XAMPP password
+    $password = "";
     $dbname = "carrentalsystem";
 
     // Create a connection
@@ -158,20 +160,20 @@
         if ($result->num_rows > 0) {
             $user = $result->fetch_assoc();
             if (password_verify($password, $user['PasswordHash'])) {
-                // Redirect to the home page
+                $_SESSION['CustomerID'] = $user['CustomerID']; // Store user ID
                 header("Location: homep.html");
                 exit();
             } else {
-                $errorMessage = "Incorrect password!";
+                $errorMessage = "Incorrect Password!";
             }
         } else {
-            $errorMessage = "No account found with this email!";
+            $errorMessage = "No Account Found With This Email!";
         }
     }
 
-    // Close the connection
     $conn->close();
     ?>
+
     <video class="video-background" autoplay loop muted>
         <source src="photos/bmw.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -186,16 +188,24 @@
             ?>
             <form method="POST">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="name@example.com" required />
+                <input type="email" id="email" name="email" placeholder="name@example.com" />
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="••••••••" required />
-                <button type="submit">Login</button>
+                <input type="password" id="password" name="password" placeholder="********" />
+                <button type="submit" onclick="isValid()">Login</button>
             </form>
             <div class="divider">
                 <span><br>Don't have an account? <a href="signup.php"><br>Sign up</a></span>
             </div>
         </div>
     </div>
+
+    <script src="./main.js">
+        if (validateEmail()) {
+            alert("Email is valid!");
+        } else {
+            alert("Email is invalid!");
+        }
+    </script>
 </body>
 
 </html>

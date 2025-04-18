@@ -43,26 +43,26 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`CarID`, `Model`, `Year`, `PlateID`, `Status`, `OfficeID`, `Type`, `PricePerDay`) VALUES
-(4, 'Mercedes Mclaren SLR', 2002, 'ABC123', 'Rented', 1, 'sport', 1300.00),
-(5, 'Bugatti Chiron', 2024, 'DEF456', 'Rented', 1, 'sport', 2600.00),
+(4, 'Mercedes Mclaren SLR', 2002, 'ABC123', 'Active', 1, 'sport', 1300.00),
+(5, 'Bugatti Chiron', 2024, 'DEF456', 'Active', 1, 'sport', 2600.00),
 (6, 'Koeingsegg Jesko', 2021, 'GHI789', 'Active', 1, 'sport', 2450.00),
-(7, 'Pagani Huayra', 2019, 'JKL012', 'Rented', 1, 'sport', 2160.00),
-(8, 'BMW M3', 2005, 'MNO345', 'Rented', 1, 'Sedan', 820.00),
-(9, 'Aston Martin DB11', 2016, 'PQR678', 'Rented', 1, 'sport', 1700.00),
-(10, 'Opel Corsa', 2022, 'STU901', 'Rented', 1, 'Hatchback', 250.00),
+(7, 'Pagani Huayra', 2019, 'JKL012', 'Active', 1, 'sport', 2160.00),
+(8, 'BMW M3', 2005, 'MNO345', 'Active', 1, 'Sedan', 820.00),
+(9, 'Aston Martin DB11', 2016, 'PQR678', 'Active', 1, 'sport', 1700.00),
+(10, 'Opel Corsa', 2022, 'STU901', 'Active', 1, 'Hatchback', 250.00),
 (11, 'Porsche 911', 2015, 'VWX234', 'Active', 1, 'sport', 1670.00),
 (12, 'Mercedes C180', 2018, 'YZA567', 'Active', 1, 'Sedan', 470.00),
 (13, 'Dodge Durango', 2019, 'BCD890', 'Active', 1, 'SUV', 910.00),
-(14, 'Ferrari F90', 2021, 'EFG123', 'Rented', 1, 'sport', 1320.00),
+(14, 'Ferrari F90', 2021, 'EFG123', 'Active', 1, 'sport', 1320.00),
 (15, 'Mercedes G Class', 2022, 'HIJ456', 'Active', 1, 'SUV', 1100.00),
-(16, 'Lamborghini Gallardo', 2018, 'KLM789', 'Rented', 1, 'sport', 1550.00),
+(16, 'Lamborghini Gallardo', 2018, 'KLM789', 'Active', 1, 'sport', 1550.00),
 (17, 'RollsRoyce Ghost', 2019, 'NOP012', 'Active', 1, 'Sedan', 1290.00),
 (18, 'Dodge Hellcat', 2017, 'QRS345', 'Active', 1, 'Sedan', 710.00),
-(19, 'MG 5', 2020, 'TUV678', 'Rented', 1, 'Sedan', 150.00),
+(19, 'Brilliance V6', 2020, 'TUV678', 'Active', 1, 'Hatchback', 300.00),
 (20, 'Tesla Model S', 2017, 'WXY901', 'Active', 1, 'Sedan', 400.00),
 (21, 'Lamborghini URUS', 2017, 'ZAB234', 'Active', 1, 'SUV', 840.00),
-(22, 'BMW X6', 2016, 'CDE567', 'Rented', 1, 'SUV', 640.00),
-(23, 'Porsche 918 Spyder', 2014, 'FGH890', 'Rented', 1, 'sport', 950.00);
+(22, 'BMW X6', 2016, 'CDE567', 'Active', 1, 'SUV', 640.00),
+(23, 'Porsche 918 Spyder', 2014, 'FGH890', 'Active', 1, 'sport', 950.00);
 
 -- --------------------------------------------------------
 

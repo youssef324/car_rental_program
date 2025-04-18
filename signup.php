@@ -4,19 +4,27 @@
     <title>Sign Up Page</title>
     <style>
         /* General Styles */
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212; /* Dark mode background */
-            color: #358faa; /* Cyan text color */
+            background-color: #121212;
+            /* Dark mode background */
+            color: #358faa;
+            /* Cyan text color */
             display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
+            overflow: hidden;
+            /* Prevent scrolling */
         }
+        
         .video-background {
             position: fixed;
             top: 0;
@@ -28,56 +36,32 @@
             object-fit: cover;
             /* Ensure the video covers the entire screen */
         }
-        /* Left Side */
-        .left-side {
-            background-color: #1e1e1e; /* Slightly lighter than the body for contrast */
-            width: 65%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-        }
-
-        /* Right Side */
-        .right-side {
-            background-color: #121212; /* Matches the body background */
-            width: 35%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .right-side img {
-            width: 100%;
-            height: auto;
-            max-height: 100%;
-            object-fit: cover;
-        }
-
-        /* Login/Sign-Up Box */
+        
         .login-box {
             padding: 2em;
             border-radius: 10px;
-            width: 500px;
-            background-color: #1e1e1e;
+            width: 400px;
+            background-color: rgba(30, 30, 30, 0.9);
+            /* Add transparency */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            margin-top: 100px;
+            text-align: center;
+            z-index: 1;
+            /* Ensure it appears above the video */
         }
-
-        .login-box h1 {
+        
+        .login-box h2 {
             font-size: 2em;
             margin-bottom: 20px;
             color: #358faa;
         }
-
+        
         .login-box label {
             display: block;
             margin: 10px 0 5px;
             text-align: left;
             color: #358faa;
         }
-
+        
         .login-box input[type="text"],
         .login-box input[type="email"],
         .login-box input[type="password"],
@@ -91,22 +75,12 @@
             margin-bottom: 10px;
             font-size: 1em;
         }
-
+        
         .login-box input[type="date"]::-webkit-calendar-picker-indicator {
-            filter: invert(1); /* Inverts colors for better visibility in dark mode */
+            filter: invert(1);
+            /* Inverts colors for better visibility in dark mode */
         }
-
-        .name-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .name-field {
-            flex: 1;
-        }
-
+        
         .login-box button[type="submit"] {
             width: 100%;
             padding: 10px;
@@ -118,11 +92,11 @@
             cursor: pointer;
             margin: 15px 0;
         }
-
+        
         .login-box button[type="submit"]:hover {
             opacity: 0.8;
         }
-
+        
         .divider {
             display: flex;
             align-items: center;
@@ -131,7 +105,7 @@
             font-size: 0.9em;
             margin: 20px 0;
         }
-
+        
         .divider::before,
         .divider::after {
             content: "";
@@ -140,7 +114,7 @@
             background-color: #333;
             margin: 0 10px;
         }
-
+        
         .divider a {
             color: whitesmoke;
             text-decoration: none;
@@ -155,7 +129,7 @@
     // Database connection parameters
     $servername = "localhost";
     $username = "root";
-    $password = ""; // Default XAMPP password
+    $password = "";#default XAMPP password 
     $dbname = "carrentalsystem";
 
     // Create a connection
@@ -181,7 +155,7 @@
 
         if ($conn->query($sql) === TRUE) {
             // Redirect to the home page upon successful signup
-            header("Location: homep.html");
+            header("Location: index.php");
             exit();
         } else {
             $errorMessage = "Error: " . $sql . "<br>" . $conn->error;
@@ -242,15 +216,22 @@
                     type="password"
                     id="password"
                     name="password"
-                    placeholder="••••••••"
+                    placeholder="********"
                     required
                 />
+                <label for="confirmPassword">Confirm Password:</label>
+            <input
+             type="password"
+             id="password"
+             name="password"
+             placeholder="********"
+             required />
 
-                <button type="submit">Sign Up</button>
+                <button type="submit" onclick="isValid()">Sign Up</button>
             </form>
 
             <div class="divider">
-                <span>Already have an account? <a href="index.php">Log in</a></span>
+                <span><br>Already have an account? <a href="index.php"><br>Log in</a></span>
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cars</title>
+    <title>home_page</title>
     <style>
         /* General Styles */
         
@@ -12,7 +12,25 @@
             font-family: Arial, sans-serif;
             margin: 0;
             background-color: #121212;
-            color: #333;
+            color: #f5eded;
+        }
+        /* Header */
+        
+        h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.5em;
+            text-align: left;
+            color: #4b01e9;
+            text-shadow: 0 0 10px #171160, 0 0 20px #134657, 0 0 30px #00bfff;
+            transition: all 0.5s ease;
+        }
+        
+        h1:hover {
+            color: #00bfff;
+            text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff;
         }
         /* Header */
         
@@ -29,12 +47,12 @@
             /* Adds space between the search bar and dropdowns */
         }
         
-        .header h1 {
+        .header-h1 {
             position: absolute;
             padding: 7px;
-            top: 10px;
-            left: 20px;
-            margin: 0;
+            top: 5px;
+            left: 180px;
+            margin: 8;
             color: #358faa;
             font-size: 45px;
         }
@@ -131,9 +149,8 @@
         }
         
         .card {
-            width: 23%;
-            background-color: #fff;
-            border: 0px solid #ddd;
+            background-color: #020202;
+            border: 0px solid #15b8cd;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
@@ -200,9 +217,8 @@
 <body>
     <!-- Header with Search and Dropdowns -->
     <header class="header">
-        <a href="#" title="car-rental">
-            <img class="car-rental" src="photos/carr.png" alt="Car Rental" />
-            <h1>Car Rental</h1>
+        <a href="about_us.html" title="car-rental">
+            <h1 class="header-h1">Impact Makers</h1>
         </a>
         <!-- Dropdowns for filtering -->
         <select class="dropdown">
@@ -267,19 +283,17 @@
         <!-- Search bar -->
         <input type="text" placeholder="Search for a car..." class="search-input" />
         <div class="right-part">
-            <a href="#" title="Language">
-                <img src="Photos/usa.png" alt="Language" />
-            </a>
         </div>
     </header>
 
     <!-- Sidebar Navigation -->
     <div class="sidebar">
         <nav class="nav">
-            <a href="#" title="Home">
+            <!-- <a href="#" title="Home">
                 <img src="Photos/home.png" alt="Home" />
-            </a>
+            </a> -->
             <a href="#" title="My Profile">
+                <!-- mlayet ba2y el byanat fel data base 3yza page php -->
                 <img src="Photos/account.png" alt="My Account" />
             </a>
             <a href="homep.html" title="Cars">
@@ -288,13 +302,13 @@
             <a href="#" title="Contacts">
                 <img src="Photos/mail.png" alt="Contact Us" />
             </a>
-            <a href="#" title="About Us">
+            <a href="./about_us.html" title="About Us">
                 <img src="Photos/about.png" alt="About Us" />
             </a>
-            <a href="#" title="Settings">
+            <!-- <a href="#" title="Settings">
                 <img src="Photos/settings.png" alt="Settings" />
-            </a>
-            <a href="./index.php" title="Log Out">
+            </a> -->
+            <a href="./index.html" title="Log Out">
                 <img src="Photos/logout.png" alt="Log Out" />
             </a>
         </nav>
@@ -310,11 +324,11 @@
                     <h3 class="car-model">Mercedes Mclaren SLR</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $1300/day</span>
+                            <span class="car-price">Price: $1300</span>
                             <span class="model-year">Model Year: 2002</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=4">Rent</a></span>
+                <span><a href="details.php?CarID=4">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -325,12 +339,12 @@
                     <h3 class="car-model">Bugatti Chiron</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $2600/day</span>
+                            <span class="car-price">Price: $2600</span>
                             <span class="model-year">Model Year: 2024</span>
                         </div>
 
                         <button class="rent">
-                <span><a href="details.php?CarID=5">Rent</a></span>
+                <span><a href="details.php?CarID=5">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -341,11 +355,11 @@
                     <h3 class="car-model">Koeingsegg Jesko</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $2450/day</span>
+                            <span class="car-price">Price: $2450</span>
                             <span class="model-year">Model Year: 2021</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=6">Rent</a></span>
+                <span><a href="details.php?CarID=6">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -356,11 +370,11 @@
                     <h3 class="car-model">Pagani Huayra</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $2160/day</span>
+                            <span class="car-price">Price: $2160</span>
                             <span class="model-year">Model Year: 2019</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=7">Rent</a></span>
+                <span><a href="details.php?CarID=7">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -374,11 +388,11 @@
                     <h3 class="car-model">BMW M3</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $820/day</span>
+                            <span class="car-price">Price: $820</span>
                             <span class="model-year">Model Year: 2005</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=8">Rent</a></span>
+                <span><a href="details.php?CarID=8">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -389,11 +403,11 @@
                     <h3 class="car-model">Aston Martin DB11</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $1700/day</span>
+                            <span class="car-price">Price: $1700</span>
                             <span class="model-year">Model Year: 2016</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=9">Rent</a></span>
+                <span><a href="details.php?CarID=9">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -404,11 +418,11 @@
                     <h3 class="car-model">Opel Corsa</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $250/day</span>
+                            <span class="car-price">Price: $250</span>
                             <span class="model-year">Model Year: 2022</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=10">Rent</a></span>
+                <span><a href="details.php?CarID=10">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -419,11 +433,11 @@
                     <h3 class="car-model">Porsche 911</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $1670/day</span>
+                            <span class="car-price">Price: $1670</span>
                             <span class="model-year">Model Year: 2015</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=11">Rent</a></span>
+                <span><a href="details.php?CarID=11">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -438,11 +452,11 @@
                     <h3 class="car-model">Mercedes C180</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $470/day</span>
+                            <span class="car-price">Price: $470</span>
                             <span class="model-year">Model Year: 2018</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=12">Rent</a></span>
+                <span><a href="details.php?CarID=12">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -453,11 +467,11 @@
                     <h3 class="car-model">Dodge Durango</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $910/day</span>
+                            <span class="car-price">Price: $910</span>
                             <span class="model-year">Model Year: 2019</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=13">Rent</a></span>
+                <span><a href="details.php?CarID=13">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -468,11 +482,11 @@
                     <h3 class="car-model">Ferrari F90</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $1320/day</span>
+                            <span class="car-price">Price: $1320</span>
                             <span class="model-year">Model Year: 2021</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=14">Rent</a></span>
+                <span><a href="details.php?CarID=14">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -483,11 +497,11 @@
                     <h3 class="car-model">Mercedes G Class</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $1100/day</span>
+                            <span class="car-price">Price: $1100</span>
                             <span class="model-year">Model Year: 2022</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=15">Rent</a></span>
+                <span><a href="details.php?CarID=15">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -502,11 +516,11 @@
                     <h3 class="car-model">Lamborghini Gallardo</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $1550/day</span>
+                            <span class="car-price">Price: $1550</span>
                             <span class="model-year">Model Year: 2018</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=16">Rent</a></span>
+                <span><a href="details.php?CarID=16">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -517,11 +531,11 @@
                     <h3 class="car-model">RollsRoyce Ghost</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $1290/day</span>
+                            <span class="car-price">Price: $1290</span>
                             <span class="model-year">Model Year: 2019</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=17">Rent</a></span>
+                <span><a href="details.php?CarID=17">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -532,26 +546,26 @@
                     <h3 class="car-model">Dodge Hellcat</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $710/day</span>
+                            <span class="car-price">Price: $710</span>
                             <span class="model-year">Model Year: 2017</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=18">Rent</a></span>
+                <span><a href="details.php?CarID=18">rent</a></span>
               </button>
                     </div>
                 </div>
             </div>
             <div class="card">
-                <img src="Photos/MG.jpeg" alt="Car 2" class="card-image" />
+                <img src="Photos/brilliace.jpg" alt="Car 2" class="card-image" />
                 <div class="card-content">
-                    <h3 class="car-model">MG 5</h3>
+                    <h3 class="car-model">Brilliance V6</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $150/day</span>
+                            <span class="car-price">Price: $300</span>
                             <span class="model-year">Model Year: 2020</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=19">Rent</a></span>
+                <span><a href="details.php?CarID=19">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -565,11 +579,11 @@
                     <h3 class="car-model">Tesla Model S</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $400/day</span>
+                            <span class="car-price">Price: $400</span>
                             <span class="model-year">Model Year: 2017</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=20">Rent</a></span>
+                <span><a href="details.php?CarID=20">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -580,11 +594,11 @@
                     <h3 class="car-model">Lamborghini URUS</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $840/day</span>
+                            <span class="car-price">Price: $840</span>
                             <span class="model-year">Model Year: 2017</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=21">Rent</a></span>
+                <span><a href="details.php?CarID=21">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -595,11 +609,11 @@
                     <h3 class="car-model">BMW X6</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $640/day</span>
+                            <span class="car-price">Price: $640</span>
                             <span class="model-year">Model Year: 2016</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=22">Rent</a></span>
+                <span><a href="details.php?CarID=22">rent</a></span>
               </button>
                     </div>
                 </div>
@@ -610,11 +624,11 @@
                     <h3 class="car-model">Porsche 918 spyder</h3>
                     <div class="details">
                         <div class="left-side">
-                            <span class="car-price">Price: $950/day</span>
+                            <span class="car-price">Price: $950</span>
                             <span class="model-year">Model Year: 2014</span>
                         </div>
                         <button class="rent">
-                <span><a href="details.php?CarID=23">Rent</a></span>
+                <span><a href="details.php?CarID=23">rent</a></span>
               </button>
                     </div>
                     ;
