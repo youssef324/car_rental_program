@@ -245,25 +245,19 @@ $conn->close();
     <!-- Sidebar Navigation -->
     <div class="sidebar">
         <nav class="nav">
-            <!-- <a href="#" title="Home">
-                <img src="Photos/home.png" alt="Home" />
-            </a> -->
-            <a href="#" title="My Profile">
+            <a href="profile.html" title="My Profile">
                 <!-- mlayet ba2y el byanat fel data base 3yza page php -->
                 <img src="Photos/account.png" alt="My Account" />
             </a>
-            <a href="homep.html" title="Cars">
+            <a href="homep.php" title="Cars">
                 <img src="Photos/car.png" alt="Cars" />
             </a>
-            <a href="#" title="Contacts">
+            <a href="contacts.html" title="Contacts">
                 <img src="Photos/mail.png" alt="Contact Us" />
             </a>
             <a href="./about_us.html" title="About Us">
                 <img src="Photos/about.png" alt="About Us" />
             </a>
-            <!-- <a href="#" title="Settings">
-                <img src="Photos/settings.png" alt="Settings" />
-            </a> -->
             <a href="./index.html" title="Log Out">
                 <img src="Photos/logout.png" alt="Log Out" />
             </a>
@@ -319,7 +313,7 @@ $conn->close();
             <p id="totalAmountFixed"><strong>Total Amount:</strong></p>
             <p><strong></strong> <span id="rentalDuration"></span></p>
             <div class="button-container">
-                <button type="button" onclick="window.location.href='homep.html'">Cancel</button>
+                <button type="button" onclick="window.location.href='homep.php'">Cancel</button>
                 <button type="submit" onclick="validateVisa()">Confirm Reservation</button>
             </div>
             <script>
