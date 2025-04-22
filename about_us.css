@@ -17,13 +17,13 @@ body {
 }
 
 .header-h1 {
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 3.5em;
-    text-align: center;
-    color: #731290;
+    text-align: left;
+    color: #1d869e;
     text-shadow: 0 0 10px #171160, 0 0 20px #134657, 0 0 30px #00bfff;
     margin: 0;
     transition: all 0.5s ease;

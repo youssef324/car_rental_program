@@ -164,10 +164,10 @@
                 header("Location: homep.html");
                 exit();
             } else {
-                $errorMessage = "Incorrect Password!";
+                $errorMessage = "Incorrect Password or Email";
             }
         } else {
-            $errorMessage = "No Account Found With This Email!";
+            $errorMessage = "No Account Found!";
         }
     }
 

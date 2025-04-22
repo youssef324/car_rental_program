@@ -36,7 +36,7 @@ if ($result->num_rows > 0) {
 // Process form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $startDate = $conn->real_escape_string($_POST['Start-date']);
-    $returnDate = $conn->real_escape_string($_POST['Return-date']);
+    $EndDate = $conn->real_escape_string($_POST['Return-date']);
     $cardNumber = $conn->real_escape_string($_POST['Card-Number']);
     $expirationDate = $conn->real_escape_string($_POST['Expiration-Date']);
     $cvc = $conn->real_escape_string($_POST['CVC']);
@@ -48,8 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $totalAmount = $car['PricePerDay'] * $rentalDays;
 
     // Insert into Reservations table
-    $sqlReservation = "INSERT INTO reservations (CustomerID, CarID, CarModel, PlateID, StartDate, returnDate, Status) 
-    VALUES ($customerID, $carID, '{$car['Model']}', '{$car['PlateID']}', '$startDate', '$returnDate', 'Reserved')";
+    $sqlReservation = "INSERT INTO reservations (CustomerID, CarID, CarModel, PlateID, StartDate, EndDate, Status) 
+    VALUES ($customerID, $carID, '{$car['Model']}', '{$car['PlateID']}', '$startDate', '$EndDate', 'Reserved')";
 
 
     if ($conn->query($sqlReservation) === TRUE) {

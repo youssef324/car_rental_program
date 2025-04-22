@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Nunito", sans-serif;
+        }
+        
+        body {
+            background-color: #121212;
+            color: #1a1a1a;
+            padding: 40px;
+        }
+        
+        .sidebar {
+            position: fixed;
+            top: 12%;
+            left: 0;
+            width: 70px;
+            height: 80%;
+            background: linear-gradient(135deg, #358faa, #358faa);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: width 0.3s;
+            padding-top: 20px;
+            z-index: 10;
+        }
+        
+        .sidebar:hover {
+            width: 100px;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            margin: 10px 0;
+            display: flex;
+            padding-bottom: 50px;
+            padding-top: 20px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            transition: transform 0.3s;
+        }
+        
+        .nav a:hover {
+            transform: scale(1.1);
+        }
+        
+        .nav img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            display: block;
+            margin: auto;
+            transition: transform 0.3s;
+        }
+        
+        .container {
+            display: flex;
+            max-width: 1100px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .form-section {
+            flex: 2;
+            padding: 40px;
+        }
+        
+        .form-section h2 {
+            color: #358faa;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .form-section p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        form .full-width {
+            grid-column: 1 / -1;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            outline: none;
+            font-size: 14px;
+        }
+        
+        textarea {
+            border-radius: 20px;
+            resize: none;
+            height: 120px;
+        }
+        
+        .phone-group {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .phone-group select {
+            width: 100px;
+            border-radius: 50px;
+        }
+        
+        .submit-btn {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .submit-btn button {
+            background-color: #358faa;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .submit-btn button:hover {
+            background-color: #001633;
+        }
+        
+        .info-section {
+            flex: 1;
+            background-color: #0c2a49;
+            color: white;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .info-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .contact-box {
+            background-color: #358faa;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+        }
+        
+        .socials {
+            display: flex;
+            gap: 12px;
+            font-size: 18px;
+        }
+        
+        .socials i {
+            cursor: pointer;
+        }
+        
+        iframe.loc {
+            border-radius: 20px;
+            width: 100%;
+            height: 200px;
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+            form {
+                grid-template-columns: 1fr;
+            }
+            .submit-btn {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your User ID
+        (function() {
+            emailjs.init("jinlg0GH8wP9Da5ii"); // Replace with your EmailJS Public Key
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <nav class="nav">
+            <a href="profile.html" title="My Profile">
+                <img src="Photos/account.png" alt="My Account" />
+            </a>
+            <a href="homep.html" title="Cars">
+                <img src="Photos/car.png" alt="Cars" />
+            </a>
+            <a href="contacts.html" title="Contacts">
+                <img src="Photos/mail.png" alt="Contact Us" />
+            </a>
+            <a href="./about_us.html" title="About Us">
+                <img src="Photos/about.png" alt="About Us" />
+            </a>
+            <a href="./index.html" title="Log Out">
+                <img src="Photos/logout.png" alt="Log Out" />
+            </a>
+        </nav>
+    </div>
+
+    <h1 style="text-align: center; margin-bottom: 30px; color: #358faa">
+        Contact Us
+    </h1>
+
+    <div class="container">
+        <div class="form-section">
+            <h2>Send us a message</h2>
+            <p>
+                Do you have a question? A complaint? Or need help choosing the right product from ImpactMakers? Feel free to contact us.
+            </p>
+            <form id="contact-form">
+                <div>
+                    <label for="first-name">First Name</label>
+                    <input type="text" name="first_name" id="first-name" placeholder="Enter your first name" required />
+                </div>
+                <div>
+                    <label for="last-name">Last Name</label>
+                    <input type="text" name="last_name" id="last-name" placeholder="Enter your last name" required />
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email" required />
+                </div>
+                <div>
+                    <label for="phone">Contact Details</label>
+                    <div class="phone-group">
+                        <select name="country_code">
+                <option>+971</option>
+                <option>+1</option>
+                <option>+20</option>
+              </select>
+                        <input type="tel" name="phone" id="phone" placeholder="Enter your contact number" required />
+                    </div>
+                </div>
+                <div class="full-width">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+                </div>
+                <div class="submit-btn">
+                    <button type="submit">Send a Message</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="info-section">
+            <h3>Hi! We are always here to help you.</h3>
+            <div class="contact-box">
+                <strong>Hotline:</strong><br /> +20 128 067 8137
+            </div>
+            <div class="contact-box">
+                <strong>SMS / WhatsApp</strong><br /> +20 128 067 8137
+            </div>
+            <div class="contact-box">
+                <strong>Email:</strong><br /> support@impactmakers.com
+            </div>
+            <div>
+                <h2>Our Location</h2>
+                <br />
+                <iframe class="loc" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11655.362830029615!2d29.9739664830939!3d31.212281887397737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5dbf2a65a8e23%3A0xc746b14340728450!2sAlexandria%20National%20University!5e0!3m2!1sen!2seg!4v1745322501083!5m2!1sen!2seg"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Moved the EmailJS script here -->
+    <script>
+        const form = document.getElementById("contact-form");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            emailjs.sendForm("service_y6uof0l", "template_ozilqwu", this).then(
+                () => {
+                    alert("Message sent successfully!");
+                    form.reset();
+                },
+                (error) => {
+                    console.error("FAILED...", error);
+                    alert("Failed to send message. Please try again later.");
+                }
+            );
+        });
+    </script>
+</body>
+
+</html>
+<!-- "service_3e6kasf""template_ostks2k""kyzmr0yYNSkWKZdKI" -->
