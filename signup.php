@@ -124,6 +124,7 @@
 </head>
 <body>
     <?php
+    session_start(); // Start the session
     $errorMessage = "";
 
     // Database connection parameters
