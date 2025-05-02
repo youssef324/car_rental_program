@@ -32,6 +32,19 @@ function isValid() {
         alert("Password and Confirm Password do not match");
         return false;
     }
+
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
+    if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return false;
+    }
+    var email = document.getElementById("email").value;
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!re.test(email)) {
+        alert("Invalid email address.");
+        return false;
+    }
     return true;
 }
 /**
@@ -69,22 +82,22 @@ function ValidateVisa() {
 
 }
 
-function check_password() {
-    var password = document.getElementById("password").value;
-    var confirmPassword = document.getElementById("confirmPassword").value;
-    if (password !== confirmPassword) {
-        alert("Passwords do not match.");
-        return false;
-    }
-    return true;
-}
+// function check_password() {
+//     var password = document.getElementById("password").value;
+//     var confirmPassword = document.getElementById("confirmPassword").value;
+//     if (password !== confirmPassword) {
+//         alert("Passwords do not match.");
+//         return false;
+//     }
+//     return true;
+// }
 
-function check_email() {
-    var email = document.getElementById("email").value;
-    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!re.test(email)) {
-        alert("Invalid email address.");
-        return false;
-    }
-    return true;
-}
+// function check_email() {
+//     var email = document.getElementById("email").value;
+//     var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     if (!re.test(email)) {
+//         alert("Invalid email address.");
+//         return false;
+//     }
+//     return true;
+// }

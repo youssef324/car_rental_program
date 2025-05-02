@@ -290,7 +290,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </div>
           <div class="submit-btn">
             <button type="button" onclick="window.location.href='profile.php'"> Cancle</button> 
-            <button type="submit" onclick="check_password()" onclick="window.location.href='index.php'">Save Changes</button>
+            <button type="submit" onclick="isValid()" onclick="window.location.href='index.php'">Save Changes</button>
           </div>
         </form>
       </div>

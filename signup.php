@@ -65,7 +65,7 @@
         .login-box input[type="text"],
         .login-box input[type="email"],
         .login-box input[type="password"],
-        .login-box input[type="tel"] {
+        .login-box input[type="text"] {
             width: 100%;
             padding: 10px;
             border: 1px solid #333;
@@ -126,7 +126,7 @@
     // Database connection parameters
     $servername = "localhost";
     $username = "root";
-    $password = ""; #default XAMPP password 
+    $password = ""; // Default XAMPP password
     $dbname = "carrentalsystem";
 
     // Create a connection
@@ -141,21 +141,27 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $firstName = $conn->real_escape_string($_POST['fname']);
         $lastName = $conn->real_escape_string($_POST['lname']);
-        $phoneNumber = $conn->real_escape_string($_POST['phone_number']); 
         $email = $conn->real_escape_string($_POST['email']);
         $password = $conn->real_escape_string($_POST['password']);
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
         // Insert data into Customers table
-        $sql = "INSERT INTO Customers (FirstName, LastName, Email, PasswordHash, phoneNumber, RegistrationDate)
-                VALUES ('$firstName', '$lastName', '$email', '$passwordHash','$phoneNumber', NOW())";
+        $sql = "INSERT INTO Customers (FirstName, LastName, Email, PasswordHash, RegistrationDate)
+                VALUES ('$firstName', '$lastName', '$email', '$passwordHash', NOW())";
 
-        if ($conn->query($sql) === TRUE) {
-            // Redirect to the home page upon successful signup
-            header("Location: index.php");
-            exit();
-        } else {
-            $errorMessage = "Error: " . $sql . "<br>" . $conn->error;
+        try {
+            if ($conn->query($sql) === TRUE) {
+                // Redirect to the home page upon successful signup
+                header("Location: index.php");
+                exit();
+            }
+        } catch (mysqli_sql_exception $e) {
+            // Check if the error is a duplicate entry for the email
+            if ($conn->errno === 1062) { // Error code 1062 is for duplicate entry
+                $errorMessage = "The email address is already registered. Please use a different email.";
+            } else {
+                $errorMessage = "Error: " . $e->getMessage();
+            }
         }
     }
 
@@ -196,14 +202,6 @@
                     </div>
                 </div>
 
-                <label for="phone_number">Phone Number:</label>
-                <input
-                    type="text" 
-                    id="phone_number"
-                    name="phoneNumber" 
-                    required 
-                />
-
                 <label for="email">Email:</label>
                 <input
                     type="email"
@@ -229,7 +227,7 @@
                     placeholder="********"
                     required 
                 />
-                <button type="submit" onclick="isValid()" , onclick="check_password()", onclick="check_email()" >Sign Up</button>
+                <button type="submit" onclick="isValid()">Sign Up</button>
             </form>
 
             <div class="divider">

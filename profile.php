@@ -19,7 +19,7 @@ $user = $result->fetch_assoc();
 
 // Handle form submission for phone number update
 $update_success = false;
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_phone'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['phoneNumber'])) {
     $phoneNumber = $_POST['phoneNumber'];
     
     $update_query = "UPDATE customers SET phoneNumber = ? WHERE CustomerID = ?";
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_phone'])) {
     
     if ($update_stmt->execute()) {
         $update_success = true;
-        $user['phoneNumber'] = $phoneNumber;
+        $user['phone_number'] = $phoneNumber;
     }
 }
 ?>
