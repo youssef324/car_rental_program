@@ -306,7 +306,7 @@
     <!-- Sidebar Navigation -->
     <div class="sidebar">
       <nav class="nav">
-        <a href="profile.html" title="My Profile">
+        <a href="profile.php" title="My Profile">
           <img src="Photos/account.png" alt="My Account" />
         </a>
         <a href="homep.php" title="Cars">

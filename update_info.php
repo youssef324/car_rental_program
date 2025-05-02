@@ -256,7 +256,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href="./about_us.html" title="About Us">
           <img src="Photos/about.png" alt="About Us" />
         </a>
-        <a href="logout.php" title="Log Out">
+        <a href="./index.html" title="Log Out">
           <img src="Photos/logout.png" alt="Log Out" />
         </a>
       </nav>
