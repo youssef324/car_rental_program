@@ -13,7 +13,7 @@ $error = '';
 $success = false;
 
 // Get current user information
-$query = "SELECT FirstName, LastName, Email, phone_number FROM customers WHERE CustomerID = ?";
+$query = "SELECT FirstName, LastName, Email, phoneNumber FROM customers WHERE CustomerID = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $CustomerID);
 $stmt->execute();
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
-    $phone_number = $_POST['phone_number'];
+    $phoneNumber = $_POST['phoneNumber'];
     
     // Basic validation
     if (empty($first_name) || empty($last_name) || empty($email)) {
@@ -33,9 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = "Please enter a valid email address";
     } else {
         // Update user information
-        $update_query = "UPDATE customers SET FirstName = ?, LastName = ?, Email = ?, phone_number = ? WHERE CustomerID = ?";
+        $update_query = "UPDATE customers SET FirstName = ?, LastName = ?, Email = ?, phoneNumber = ? WHERE CustomerID = ?";
         $update_stmt = $conn->prepare($update_query);
-        $update_stmt->bind_param("ssssi", $first_name, $last_name, $email, $phone_number, $CustomerID);
+        $update_stmt->bind_param("ssssi", $first_name, $last_name, $email, $phoneNumber, $CustomerID);
         
         if ($update_stmt->execute()) {
             $success = true;
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $user['FirstName'] = $first_name;
             $user['LastName'] = $last_name;
             $user['Email'] = $email;
-            $user['phone_number'] = $phone_number;
+            $user['phoneNumber'] = $phoneNumber;
         } else {
             $error = "Error updating information. Please try again.";
         }
@@ -307,7 +307,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <div class="full-width">
             <label for="phone_number">Phone Number</label>
             <input type="text" id="phone_number" name="phone_number" 
-                   value="<?php echo htmlspecialchars($user['phone_number'] ?? ''); ?>">
+                   value="<?php echo htmlspecialchars($user['phoneNumber'] ?? ''); ?>">
           </div>
           <div class="submit-btn">
             <button type="submit">Save Changes</button>

@@ -10,7 +10,7 @@ if (!isset($_SESSION['CustomerID'])) {
 
 // Get current user's information including phone number
 $CustomerID = $_SESSION['CustomerID'];
-$query = "SELECT FirstName, LastName, Email, phone_number FROM customers WHERE CustomerID = ?";
+$query = "SELECT FirstName, LastName, Email, phoneNumber FROM customers WHERE CustomerID = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $CustomerID);
 $stmt->execute();
@@ -307,7 +307,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_phone'])) {
           <div class="full-width">
             <label for="phone_number">Phone Number</label>
             <input type="text" id="phone_number" name="phone_number" placeholder="Your phone number" 
-                   value="<?php echo htmlspecialchars($user['phone_number'] ?? ''); ?>" disabled>
+                   value="<?php echo htmlspecialchars($user['phoneNumber'] ?? ''); ?>" disabled>
           </div>
           <div class="password-display full-width">
             <label>Password</label>
