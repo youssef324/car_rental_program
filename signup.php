@@ -228,7 +228,7 @@
              placeholder="********"
              required />
 
-                <button type="submit" onclick="isValid()">Sign Up</button>
+                <button type="submit" onclick="isValid()" , onclick="check_password()", onclick="check_email()" >Sign Up</button>
             </form>
 
             <div class="divider">

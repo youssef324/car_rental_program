@@ -77,9 +77,9 @@ CREATE TABLE `customers` (
   `Email` varchar(100) NOT NULL,
   `PasswordHash` varchar(255) NOT NULL,
   `PhoneNumber` varchar(15) DEFAULT NULL,
-  `Address` varchar(255) DEFAULT NULL,
-  `City` varchar(100) DEFAULT NULL,
-  `Country` varchar(100) DEFAULT NULL,
+  -- `Address` varchar(255) DEFAULT NULL,
+  -- `City` varchar(100) DEFAULT NULL,
+  -- `Country` varchar(100) DEFAULT NULL,
   `RegistrationDate` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -197,7 +197,7 @@ INSERT INTO `reservations` (`ReservationID`, `CustomerID`, `CarID`, `Reservation
 (21, 1, 4, '2024-12-31 08:47:05', '2025-01-01', '2025-01-05', 'Reserved', 'Mercedes Mclaren SLR', 'ABC123'),
 (22, 1, 14, '2024-12-31 09:05:51', '2025-01-01', '2025-01-05', 'Reserved', 'Ferrari F90', 'EFG123'),
 (23, 1, 4, '2024-12-31 10:01:24', '0034-12-23', '0003-04-05', 'Reserved', 'Mercedes Mclaren SLR', 'ABC123'),
-(24, 1, 19, '2024-12-31 13:18:41', '2025-01-01', '2025-01-05', 'Reserved', 'MG 5', 'TUV678');
+(24, 1, 19, '2024-12-31 13:18:41', '2025-01-01', '2025-01-05', 'Reserved', 'brilliance V6', 'TUV678');
 
 --
 -- Indexes for dumped tables

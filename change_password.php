@@ -287,7 +287,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your new password" required>
           </div>
           <div class="submit-btn">
-            <button type="submit" onclick="isValid()">Save Changes</button>
+            <button type="submit" onclick="check_password()">Save Changes</button>
           </div>
         </form>
       </div>
