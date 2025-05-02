@@ -245,14 +245,14 @@ $conn->close();
     <!-- Sidebar Navigation -->
     <div class="sidebar">
         <nav class="nav">
-            <a href="profile.html" title="My Profile">
+            <a href="./profile.php" title="My Profile">
                 <!-- mlayet ba2y el byanat fel data base 3yza page php -->
                 <img src="Photos/account.png" alt="My Account" />
             </a>
-            <a href="homep.php" title="Cars">
+            <a href="./homep.php" title="Cars">
                 <img src="Photos/car.png" alt="Cars" />
             </a>
-            <a href="contacts.html" title="Contacts">
+            <a href="./contacts.html" title="Contacts">
                 <img src="Photos/mail.png" alt="Contact Us" />
             </a>
             <a href="./about_us.html" title="About Us">
