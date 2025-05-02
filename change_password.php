@@ -191,6 +191,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         border-radius: 30px;
         cursor: pointer;
         transition: 0.3s;
+        margin-left: 50px;
+        margin-left: 50px;
       }
 
       .submit-btn button:hover {
@@ -287,7 +289,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your new password" required>
           </div>
           <div class="submit-btn">
-            <button type="submit" onclick="check_password()">Save Changes</button>
+            <button type="button" onclick="window.location.href='profile.php'"> Cancle</button> 
+            <button type="submit" onclick="check_password()" onclick="window.location.href='index.php'">Save Changes</button>
           </div>
         </form>
       </div>

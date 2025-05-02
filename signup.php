@@ -65,7 +65,7 @@
         .login-box input[type="text"],
         .login-box input[type="email"],
         .login-box input[type="password"],
-        .login-box input[type="date"] {
+        .login-box input[type="tel"] {
             width: 100%;
             padding: 10px;
             border: 1px solid #333;
@@ -76,10 +76,6 @@
             font-size: 1em;
         }
         
-        .login-box input[type="date"]::-webkit-calendar-picker-indicator {
-            filter: invert(1);
-            /* Inverts colors for better visibility in dark mode */
-        }
         
         .login-box button[type="submit"] {
             width: 100%;
@@ -130,7 +126,7 @@
     // Database connection parameters
     $servername = "localhost";
     $username = "root";
-    $password = "";#default XAMPP password 
+    $password = ""; #default XAMPP password 
     $dbname = "carrentalsystem";
 
     // Create a connection
@@ -145,14 +141,14 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $firstName = $conn->real_escape_string($_POST['fname']);
         $lastName = $conn->real_escape_string($_POST['lname']);
-        $birthDate = $conn->real_escape_string($_POST['birth-date']);
+        $phoneNumber = $conn->real_escape_string($_POST['phone_number']); 
         $email = $conn->real_escape_string($_POST['email']);
         $password = $conn->real_escape_string($_POST['password']);
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
         // Insert data into Customers table
-        $sql = "INSERT INTO Customers (FirstName, LastName, Email, PasswordHash, RegistrationDate)
-                VALUES ('$firstName', '$lastName', '$email', '$passwordHash', NOW())";
+        $sql = "INSERT INTO Customers (FirstName, LastName, Email, PasswordHash, phoneNumber, RegistrationDate)
+                VALUES ('$firstName', '$lastName', '$email', '$passwordHash','$phoneNumber', NOW())";
 
         if ($conn->query($sql) === TRUE) {
             // Redirect to the home page upon successful signup
@@ -200,8 +196,13 @@
                     </div>
                 </div>
 
-                <label for="birth-date">Birth Date:</label>
-                <input type="date" id="birth-date" name="birth-date" required />
+                <label for="phone_number">Phone Number:</label>
+                <input
+                    type="text" 
+                    id="phone_number"
+                    name="phoneNumber" 
+                    required 
+                />
 
                 <label for="email">Email:</label>
                 <input
@@ -221,13 +222,13 @@
                     required
                 />
                 <label for="confirmPassword">Confirm Password:</label>
-            <input
-             type="password"
-             id="password"
-             name="password"
-             placeholder="********"
-             required />
-
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="********"
+                    required 
+                />
                 <button type="submit" onclick="isValid()" , onclick="check_password()", onclick="check_email()" >Sign Up</button>
             </form>
 

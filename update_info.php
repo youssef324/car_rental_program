@@ -27,19 +27,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phoneNumber = $_POST['phoneNumber'];
     
     // Basic validation
-    if (empty($first_name) || empty($last_name) || empty($email)) {
+    if (empty($first_name) || empty($last_name) || empty($email) || empty($phoneNumber)) {
         $error = "Please fill in all required fields";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = "Please enter a valid email address";
+    } elseif (empty($phoneNumber)) {
+        $error = "Phone number is required.";
+    } elseif (!preg_match('/^[0-9]{10,15}$/', $phoneNumber)) {
+        $error = "Please enter a valid phone number.";
     } else {
         // Update user information
         $update_query = "UPDATE customers SET FirstName = ?, LastName = ?, Email = ?, phoneNumber = ? WHERE CustomerID = ?";
         $update_stmt = $conn->prepare($update_query);
         $update_stmt->bind_param("ssssi", $first_name, $last_name, $email, $phoneNumber, $CustomerID);
-        
         if ($update_stmt->execute()) {
             $success = true;
-            // Refresh user data
             $user['FirstName'] = $first_name;
             $user['LastName'] = $last_name;
             $user['Email'] = $email;
@@ -63,13 +65,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         padding: 0;
         font-family: "Nunito", sans-serif;
       }
-
       body {
         background-color: #121212;
         color: #1a1a1a;
         padding: 40px;
       }
-
       .sidebar {
         position: fixed;
         top: 12%;
@@ -87,7 +87,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         padding-top: 20px;
         z-index: 10;
       }
-
       .sidebar:hover {
         width: 100px;
       }
@@ -103,7 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         width: 100%;
         transition: transform 0.3s;
       }
-
       .nav a:hover {
         transform: scale(1.1);
       }
@@ -116,14 +114,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         margin: auto;
         transition: transform 0.3s;
       }
-
       .account-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 30px;
       }
-
       .account-header img {
         width: 100px;
         height: 100px;
@@ -132,7 +128,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         margin-left: 20px;
         border: 4px solid #358faa;
       }
-
       .container {
         display: flex;
         max-width: 750px;
@@ -142,31 +137,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         overflow: hidden;
       }
-
       .form-section {
         flex: 1;
         padding: 40px;
       }
-
       .form-section h2 {
         color: #358faa;
         font-size: 24px;
         font-weight: 700;
         margin-bottom: 10px;
       }
-
       .form-section p {
         color: #666;
         margin-bottom: 30px;
         font-size: 14px;
       }
-
       form {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
       }
-
       form .full-width {
         grid-column: 1 / -1;
       }
@@ -177,7 +167,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         font-weight: bold;
         font-size: 14px;
       }
-
       input {
         width: 100%;
         padding: 14px 18px;
@@ -186,14 +175,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         outline: none;
         font-size: 14px;
       }
-
       .submit-btn {
         grid-column: 1 / -1;
         display: flex;
         justify-content: center;
         margin-top: 20px;
       }
-
       .submit-btn button {
         background-color: #358faa;
         color: white;
@@ -203,8 +190,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         border-radius: 30px;
         cursor: pointer;
         transition: 0.3s;
+        margin-left: 50px;
       }
-
       .submit-btn button:hover {
         background-color: #001633;
       }
@@ -215,19 +202,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         border: 1px solid transparent;
         border-radius: 4px;
       }
-
       .alert-success {
         color: #3c763d;
         background-color: #dff0d8;
         border-color: #d6e9c6;
       }
-
       .alert-danger {
         color: #a94442;
         background-color: #f2dede;
         border-color: #ebccd1;
       }
-
       @media (max-width: 900px) {
         .container {
           flex-direction: column;
@@ -240,7 +224,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       }
     </style>
   </head>
-
   <body>
     <div class="sidebar">
       <nav class="nav">
@@ -261,7 +244,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </a>
       </nav>
     </div>
-
     <h1 style="text-align: center; margin-bottom: -60px; color: #358faa">
       Update Account Information
     </h1>
@@ -273,13 +255,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             Your account information has been updated successfully!
           </div>
         <?php endif; ?>
-        
         <?php if (!empty($error)): ?>
           <div class="alert alert-danger">
             <?php echo htmlspecialchars($error); ?>
           </div>
         <?php endif; ?>
-
         <div class="account-header">
           <div>
             <h2>Personal Information</h2>
@@ -287,7 +267,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </div>
           <img src="Photos/911.jpeg" alt="Profile Photo" />
         </div>
-        
         <form method="POST" action="update_info.php">
           <div>
             <label for="first-name">First Name *</label>
@@ -307,10 +286,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <div class="full-width">
             <label for="phone_number">Phone Number</label>
             <input type="text" id="phone_number" name="phone_number" 
-                   value="<?php echo htmlspecialchars($user['phoneNumber'] ?? ''); ?>">
+                   value="<?php echo htmlspecialchars($user['phoneNumber']); ?>">
           </div>
           <div class="submit-btn">
-            <button type="submit">Save Changes</button>
+            <button type="button" onclick="window.location.href='profile.php'">Cancel</button>
+            <button type="submit" onclick="window.location.href='profile.php'">Save Changes</button>
           </div>
         </form>
       </div>

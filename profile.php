@@ -20,15 +20,15 @@ $user = $result->fetch_assoc();
 // Handle form submission for phone number update
 $update_success = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_phone'])) {
-    $phone_number = $_POST['phone_number'];
+    $phoneNumber = $_POST['phoneNumber'];
     
-    $update_query = "UPDATE customers SET phone_number = ? WHERE CustomerID = ?";
+    $update_query = "UPDATE customers SET phoneNumber = ? WHERE CustomerID = ?";
     $update_stmt = $conn->prepare($update_query);
-    $update_stmt->bind_param("si", $phone_number, $CustomerID);
+    $update_stmt->bind_param("si", $phonNumber, $CustomerID);
     
     if ($update_stmt->execute()) {
         $update_success = true;
-        $user['phone_number'] = $phone_number;
+        $user['phoneNumber'] = $phoneNumber;
     }
 }
 ?>
@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_phone'])) {
         background-color: #121212;
         color: #1a1a1a;
         padding: 40px;
+        margin-left: 340px;
       }
 
       .sidebar {
@@ -189,9 +190,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_phone'])) {
         padding: 14px 32px;
         font-size: 16px;
         border-radius: 30px;
-        margin-top: -50px;
+        margin-top: 0px;
         cursor: pointer;
         transition: 0.3s;
+        margin-right: 50px;
+        margin-left: 50px;
       }
 
       .submit-btn button:hover {
@@ -246,7 +249,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_phone'])) {
       }
     </style>
   </head>
-
+        <h1 style="text-align: center; margin-top: -20px; color: #358faa">
+             My Account
+        </h1>
   <body>
     <div class="sidebar">
       <nav class="nav">
@@ -268,9 +273,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_phone'])) {
       </nav>
     </div>
 
-    <h1 style="text-align: center; margin-top: -20px; color: #358faa">
-      My Account
-    </h1>
+    
 
     <div class="container">
       <div class="form-section">
@@ -307,15 +310,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_phone'])) {
           <div class="full-width">
             <label for="phone_number">Phone Number</label>
             <input type="text" id="phone_number" name="phone_number" placeholder="Your phone number" 
-                   value="<?php echo htmlspecialchars($user['phoneNumber'] ?? ''); ?>" disabled>
+                   value="<?php echo htmlspecialchars($user['phoneNumber']); ?>" disabled>
           </div>
           <div class="password-display full-width">
             <label>Password</label>
             <input type="password" value="••••••••" disabled>
-            <p style="margin-top: 8px;"><a href="change_password.php">Change Password</a></p>
+           
           </div>
           <div class="submit-btn">
             <button type="button" onclick="window.location.href='update_info.php'">Update Account Information</button>
+            <button type="button" onclick="window.location.href='change_password.php'">Change Password</button>
           </div>
         </form>
       </div>
