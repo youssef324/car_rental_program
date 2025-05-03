@@ -9,9 +9,9 @@ try {
     $conn = new mysqli($servername, $username, $password, $dbname);
     $conn->set_charset("utf8mb4");
 
-    $name = "admin";
-    $user = "admin";
-    $plainPassword = "admin@123";
+    $name = "joe";
+    $user = "joe";
+    $plainPassword = "joe@123";
     $passwordHash = password_hash($plainPassword, PASSWORD_DEFAULT);
     $isAdmin = 1; // 1 for admin, 0 for regular user
 
