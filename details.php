@@ -274,7 +274,8 @@ $conn->close();
     <div class="container">
         <h1><?php echo htmlspecialchars($car['Model']); ?></h1>
         <p><strong>Year:</strong> <?php echo htmlspecialchars($car['Year']); ?></p>
-        <p><strong>Price per Day:</strong> $<span id="pricePERDAY"><?php echo htmlspecialchars($car['PricePerDay']); ?></span></p> 
+        <p><strong>Price per Day:</strong> $<span
+                id="pricePERDAY"><?php echo htmlspecialchars($car['PricePerDay']); ?></span></p>
         <p><strong>Plate Number:</strong> <?php echo htmlspecialchars($car['PlateID']); ?></p>
         <p><strong>Type:</strong> <?php echo htmlspecialchars($car['Type']); ?></p>
         <p><strong>Status:</strong> <?php echo htmlspecialchars($car['Status']); ?></p>
@@ -317,42 +318,42 @@ $conn->close();
                 <button type="submit" onclick="validateVisa()">Confirm Reservation</button>
             </div>
             <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const startInput = document.getElementById('startDate');
-        const returnInput = document.getElementById('returnDate');
-        const result = document.getElementById('rentalDuration');
-        const pricePERDAY = document.getElementById('pricePERDAY').textContent;
-        const totalAmountFixed = document.getElementById('totalAmountFixed');
+                document.addEventListener('DOMContentLoaded', function () {
+                    const startInput = document.getElementById('startDate');
+                    const returnInput = document.getElementById('returnDate');
+                    const result = document.getElementById('rentalDuration');
+                    const pricePERDAY = document.getElementById('pricePERDAY').textContent;
+                    const totalAmountFixed = document.getElementById('totalAmountFixed');
 
-        function calculateDays() {
-            const startDate = startInput.value;
-            const returnDate = returnInput.value;
+                    function calculateDays() {
+                        const startDate = startInput.value;
+                        const returnDate = returnInput.value;
 
-            if (!startDate || !returnDate) {
-                result.textContent = '';
-                return;
-            }
+                        if (!startDate || !returnDate) {
+                            result.textContent = '';
+                            return;
+                        }
 
-            const start = new Date(startDate);
-            const end = new Date(returnDate);
-            const diffTime = end - start;   
-            var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                        const start = new Date(startDate);
+                        const end = new Date(returnDate);
+                        const diffTime = end - start;
+                        var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-            if (diffDays < 0) {
-                result.textContent = 'Return date must be after start date.';
-            } else {
-                result.textContent = `Number of days: ${diffDays}  day(s)`;
+                        if (diffDays < 0) {
+                            result.textContent = 'Return date must be after start date.';
+                        } else {
+                            result.textContent = `Number of days: ${diffDays}  day(s)`;
 
-            }
+                        }
 
-            totalAmountFixed.textContent = `Total amount to pay: ${diffDays * pricePERDAY} $`; 
-            
-        }
+                        totalAmountFixed.textContent = `Total amount to pay: ${diffDays * pricePERDAY} $`;
 
-        startInput.addEventListener('input', calculateDays);
-        returnInput.addEventListener('input', calculateDays);
-    });
-</script>
+                    }
+
+                    startInput.addEventListener('input', calculateDays);
+                    returnInput.addEventListener('input', calculateDays);
+                });
+            </script>
 
         </form>
     </div>

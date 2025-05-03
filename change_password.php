@@ -289,7 +289,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your new password" required>
           </div>
           <div class="submit-btn">
-            <button type="button" onclick="window.location.href='profile.php'"> Cancle</button> 
+            <button type="button" onclick="window.location.href='profile.php'"> cancel</button> 
             <button type="submit" onclick="isValid()" onclick="window.location.href='index.php'">Save Changes</button>
           </div>
         </form>

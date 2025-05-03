@@ -50,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['phoneNumber'])) {
         background-color: #121212;
         color: #1a1a1a;
         padding: 40px;
-        margin-left: 340px;
       }
 
       .sidebar {
@@ -118,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['phoneNumber'])) {
       .container {
         display: flex;
         max-width: 750px;
-        margin: 30px 0px 0px 320px;
+        margin: 30px auto;
         background-color: #fff;
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
