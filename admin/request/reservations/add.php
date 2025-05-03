@@ -41,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Fetch cars and customers for dropdowns
 $cars = $conn->query("SELECT CarID, Model FROM cars");
 $customers = $conn->query("SELECT CustomerID, FirstName, LastName FROM customers");
 

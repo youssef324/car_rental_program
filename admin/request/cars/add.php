@@ -15,7 +15,6 @@ try {
     $conn->set_charset("utf8mb4");
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        // Change these fields depending on your table
         $model = $_POST['Model'];
         $year = $_POST['Year'];
         $plate = $_POST['PlateID'];

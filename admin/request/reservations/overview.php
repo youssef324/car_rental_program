@@ -15,7 +15,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Handle delete operation
 if (isset($_GET['delete_id'])) {
     $deleteId = $_GET['delete_id'];
     $deleteSql = "DELETE FROM reservations WHERE ReservationID = $deleteId";

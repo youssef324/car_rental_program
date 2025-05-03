@@ -64,7 +64,6 @@ try {
                 <td><?= $car['Type'] ?></td>
                 <td><?= $car['PricePerDay'] ?></td>
                 <td>
-                    <!-- Edit redirect can be implemented similarly -->
                     <a href="?delete=<?= $car['CarID'] ?>" onclick="return confirm('Delete this car?')">Delete</a>
                 </td>
             </tr>
