@@ -20,9 +20,10 @@ try {
         $plate = $_POST['PlateID'];
         $type = $_POST['Type'];
         $price = $_POST['PricePerDay'];
+        $image_url = $_POST['image_url'];
 
-        $stmt = $conn->prepare("INSERT INTO cars (Model, Year, PlateID, Type, PricePerDay) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sissd", $model, $year, $plate, $type, $price);
+        $stmt = $conn->prepare("INSERT INTO cars (Model, Year, PlateID, Type, PricePerDay, image_url) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sissds", $model, $year, $plate, $type, $price, $image_url);
         $stmt->execute();
 
         $successMessage = "Car added successfully!";
@@ -53,6 +54,7 @@ try {
             <input type="text" name="PlateID" placeholder="Plate ID" required>
             <input type="text" name="Type" placeholder="Type" required>
             <input type="number" step="0.01" name="PricePerDay" placeholder="Price Per Day" required>
+            <input type="text" name="image_url" placeholder="Image URL" required>
             <button type="submit">Add</button>
         </form>
     </div>

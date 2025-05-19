@@ -161,7 +161,7 @@
             $user = $result->fetch_assoc();
             if (password_verify($password, $user['PasswordHash'])) {
                 $_SESSION['CustomerID'] = $user['CustomerID']; // Store user ID
-                header("Location: homep.php");
+                header("Location: Dashboard.php"); // Redirect to dashboard
                 exit();
             } else {
                 $errorMessage = "Incorrect Password or Email";

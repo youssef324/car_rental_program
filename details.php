@@ -249,7 +249,7 @@ $conn->close();
                 <!-- mlayet ba2y el byanat fel data base 3yza page php -->
                 <img src="Photos/account.png" alt="My Account" />
             </a>
-            <a href="./homep.php" title="Cars">
+            <a href="./Dashboard.php" title="Cars">
                 <img src="Photos/car.png" alt="Cars" />
             </a>
             <a href="./contacts.html" title="Contacts">
@@ -299,7 +299,7 @@ $conn->close();
 
             <!-- Payment Information -->
             <label for="cardNumber">Card Number:</label>
-            <input class="cardnum" type="text" id="cardNumber" name="Card-Number" maxlength="19"
+            <input class="cardnum" type="text" id="cardNumber" name="Card-Number" maxlength="16"
                 placeholder="1234-1234-1234-1234">
             <div class="expcvc">
                 <div>
@@ -314,7 +314,7 @@ $conn->close();
             <p id="totalAmountFixed"><strong>Total Amount:</strong></p>
             <p><strong></strong> <span id="rentalDuration"></span></p>
             <div class="button-container">
-                <button type="button" onclick="window.location.href='homep.php'">Cancel</button>
+                <button type="button" onclick="window.location.href='Dashboard.php'">Cancel</button>
                 <button type="submit" onclick="validateVisa()">Confirm Reservation</button>
             </div>
             <script>
@@ -391,7 +391,7 @@ $conn->close();
                 $sqlUpdateCar = "UPDATE Cars SET Status = 'Rented' WHERE CarID = $carID";
                 $conn->query($sqlUpdateCar);    //redirect 3la page contact lma tt3amal el reservation
     
-                echo "<script>alert('Reservation confirmed!'); window.location.href = 'homep.html';</script>";
+                echo "<script>alert('Reservation confirmed!'); window.location.href = 'Dashboard.php';</script>";
             } else {
                 echo "Error inserting payment: " . $conn->error;
             }

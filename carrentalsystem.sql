@@ -212,6 +212,7 @@ ALTER TABLE `cars`
   ADD UNIQUE KEY `UNIQUE_CarModel` (`Model`),
   ADD UNIQUE KEY `UNIQUE_PlateID` (`PlateID`),
   ADD KEY `OfficeID` (`OfficeID`);
+  Add image_url VARCHAR(255) 
 
 --
 -- Indexes for table `customers`

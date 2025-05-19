@@ -40,7 +40,7 @@ function isValid() {
         return false;
     }
     var email = document.getElementById("email").value;
-    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]{3}$/;
     if (!re.test(email)) {
         alert("Invalid email address.");
         return false;

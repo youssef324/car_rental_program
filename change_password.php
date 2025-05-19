@@ -234,7 +234,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href="profile.php" title="My Profile">
           <img src="Photos/account.png" alt="My Account" />
         </a>
-        <a href="homep.php" title="Cars">
+        <a href="Dashboard.php" title="Cars">
           <img src="Photos/car.png" alt="Cars" />
         </a>
         <a href="contacts.html" title="Contacts">
