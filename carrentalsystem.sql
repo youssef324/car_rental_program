@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2025 at 06:01 PM
+-- Generation Time: May 20, 2025 at 01:27 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,34 +35,32 @@ CREATE TABLE `cars` (
   `Status` enum('Active','Out of Service','Rented') DEFAULT 'Active',
   `OfficeID` int(11) DEFAULT NULL,
   `Type` varchar(50) NOT NULL,
-  `PricePerDay` decimal(10,2) NOT NULL
+  `PricePerDay` decimal(10,2) NOT NULL,
+  `image_url` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cars`
 --
 
-INSERT INTO `cars` (`CarID`, `Model`, `Year`, `PlateID`, `Status`, `OfficeID`, `Type`, `PricePerDay`) VALUES
-(4, 'Mercedes Mclaren SLR', 2002, 'ABC123', 'Active', 1, 'sport', 1300.00),
-(5, 'Bugatti Chiron', 2024, 'DEF456', 'Active', 1, 'sport', 2600.00),
-(6, 'Koeingsegg Jesko', 2021, 'GHI789', 'Active', 1, 'sport', 2450.00),
-(7, 'Pagani Huayra', 2019, 'JKL012', 'Active', 1, 'sport', 2160.00),
-(8, 'BMW M3', 2005, 'MNO345', 'Active', 1, 'Sedan', 820.00),
-(9, 'Aston Martin DB11', 2016, 'PQR678', 'Active', 1, 'sport', 1700.00),
-(10, 'Opel Corsa', 2022, 'STU901', 'Active', 1, 'Hatchback', 250.00),
-(11, 'Porsche 911', 2015, 'VWX234', 'Active', 1, 'sport', 1670.00),
-(12, 'Mercedes C180', 2018, 'YZA567', 'Active', 1, 'Sedan', 470.00),
-(13, 'Dodge Durango', 2019, 'BCD890', 'Active', 1, 'SUV', 910.00),
-(14, 'Ferrari F90', 2021, 'EFG123', 'Active', 1, 'sport', 1320.00),
-(15, 'Mercedes G Class', 2022, 'HIJ456', 'Active', 1, 'SUV', 1100.00),
-(16, 'Lamborghini Gallardo', 2018, 'KLM789', 'Active', 1, 'sport', 1550.00),
-(17, 'RollsRoyce Ghost', 2019, 'NOP012', 'Active', 1, 'Sedan', 1290.00),
-(18, 'Dodge Hellcat', 2017, 'QRS345', 'Active', 1, 'Sedan', 710.00),
-(19, 'Brilliance V6', 2020, 'TUV678', 'Active', 1, 'Hatchback', 300.00),
-(20, 'Tesla Model S', 2017, 'WXY901', 'Active', 1, 'Sedan', 400.00),
-(21, 'Lamborghini URUS', 2017, 'ZAB234', 'Active', 1, 'SUV', 840.00),
-(22, 'BMW X6', 2016, 'CDE567', 'Active', 1, 'SUV', 640.00),
-(23, 'Porsche 918 Spyder', 2014, 'FGH890', 'Active', 1, 'sport', 950.00);
+INSERT INTO `cars` (`CarID`, `Model`, `Year`, `PlateID`, `Status`, `OfficeID`, `Type`, `PricePerDay`, `image_url`) VALUES
+(4, 'Mercedes Mclaren SLR', 2002, 'ABC123', 'Active', 1, 'sport', 1300.00, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Mercedes-Benz_SLR_McLaren_%288615164079%29.jpg/1920px-Mercedes-Benz_SLR_McLaren_%288615164079%29.jpg'),
+(5, 'Bugatti Chiron', 2024, 'DEF456', 'Active', 1, 'sport', 2600.00, 'https://images.hgmsites.net/hug/bugatti-chiron-first-drive_100596770_h.jpg'),
+(6, 'Koeingsegg Jesko', 2021, 'GHI789', 'Active', 1, 'sport', 2450.00, 'https://images.squarespace-cdn.com/content/v1/6371cc49cda4fd302dde5ccd/efb91f6e-3273-4f85-8eb9-1c525f13eb72/Jesko+Odin+Front.jpg'),
+(7, 'Pagani Huayra', 2019, 'JKL012', 'Active', 1, 'sport', 2160.00, 'https://www.topgear.com/sites/default/files/cars-car/carousel/2016/08/rh_huayrabc-67.jpg'),
+(8, 'BMW M3', 2005, 'MNO345', 'Active', 1, 'Sedan', 820.00, 'https://cdn.motor1.com/images/mgl/eoKjQP/s3/bmw-m3-gtr-from-2005-s-need-for-speed-most-wanted.webp'),
+(9, 'Aston Martin DB11', 2016, 'PQR678', 'Active', 1, 'sport', 1700.00, 'https://www.stratstone.com/-/media/stratstone/aston-martin/models/inline-images/db11/reviews/road-test/amr/aston-martin-db11-amr-720x405px.ashx?'),
+(11, 'Porsche 911', 2015, 'VWX234', 'Active', 1, 'sport', 1670.00, 'https://img.wprost.pl/img/nowe-porsche-911-gt3-r-rennsport-nie-wystarczy-milion-dolarow/44/e7/2b54e77606b31bc4b2e7f42dabf0.webp'),
+(13, 'Brilliance V6', 2019, 'BCD890', 'Active', 1, 'SUV', 910.00, 'https://i1.autocango.com/spec/771182e6dad29b4676cbc263ffcc89ef95f498d711f0ed9c14f3c2e8854cbe10.webp'),
+(14, 'Ferrari F90', 2021, 'EFG123', 'Active', 1, 'sport', 1320.00, 'https://www.topgear.com/sites/default/files/cars-car/carousel/2020/07/dsc09285.jpg'),
+(15, 'Mercedes G Class', 2022, 'HIJ456', 'Active', 1, 'SUV', 1100.00, 'https://exfordrentacar.com/program/images/products/1706532243imageFile.jpg'),
+(16, 'lamborghini aventador svj', 2018, 'KLM789', 'Active', 1, 'sport', 1550.00, 'https://www.wrapstyle.com/content/img_cache/1200x675/1663328332-2068-Lamborghini-Aventador-SVJ-Stripes-Design-Wrapstyle-1.jpeg'),
+(17, 'RollsRoyce Ghost', 2019, 'NOP012', 'Active', 1, 'Sedan', 1290.00, 'https://www.barchemagazine.com/wp-content/uploads/2022/05/P90442130-rolls-royce-announce-800x600.jpg'),
+(18, 'Dodge Hellcat', 2017, 'QRS345', 'Active', 1, 'Sedan', 710.00, 'https://hips.hearstapps.com/hmg-prod/images/2019-dodge-challenger-srt-hellcat-redeye-comparison-104-1581425446.jpg'),
+(21, 'Lamborghini URUS', 2017, 'ZAB234', 'Active', 1, 'SUV', 840.00, 'https://www.topgear.com/sites/default/files/2024/10/1-Lamborghini-Urus-SE-review-2024.jpg'),
+(22, 'BMW X7', 2023, 'CDE567', 'Active', 1, 'SUV', 640.00, 'https://www.carscoops.com/wp-content/uploads/2022/03/Manhart-MHX7-650-a.jpg'),
+(23, 'Porsche 918 Spyder', 2014, 'FGH890', 'Active', 1, 'sport', 950.00, 'https://www.pcarmarket.com/static/media/uploads/galleries/photos/uploads/galleries/2015-918-spyder-martini-livery/.thumbnails/7539698F-CC7C-_hxuSWvc.jpg/7539698F-CC7C-_hxuSWvc-tiny-2048x0-0.5x0.jpg'),
+(35, 'Opel', 234, '342', 'Active', NULL, '22', 222.00, 'https://ellaithy.com.eg/wp-content/uploads/2021/08/1627819835_326_163851_whatsappimage20210801at1.58.05pm.jpeg');
 
 -- --------------------------------------------------------
 
@@ -77,9 +75,9 @@ CREATE TABLE `customers` (
   `Email` varchar(100) NOT NULL,
   `PasswordHash` varchar(255) NOT NULL,
   `PhoneNumber` varchar(15) DEFAULT NULL,
-  -- `Address` varchar(255) DEFAULT NULL,
-  -- `City` varchar(100) DEFAULT NULL,
-  -- `Country` varchar(100) DEFAULT NULL,
+  `Address` varchar(255) DEFAULT NULL,
+  `City` varchar(100) DEFAULT NULL,
+  `Country` varchar(100) DEFAULT NULL,
   `RegistrationDate` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -93,7 +91,30 @@ INSERT INTO `customers` (`CustomerID`, `FirstName`, `LastName`, `Email`, `Passwo
 (6, 'ahmed', 'Mohamed', 'ahmedmohamed@gmail.com', '$2y$10$R.2hzDtngUgiod8yV.KcxuD0K9nPPvMccR0vBIJkvJmshFIB73cze', NULL, NULL, NULL, NULL, '2024-12-30 21:14:43'),
 (7, 'aya', 'moustafa', 'aya@gmail.com', '$2y$10$XLWwVaWzMqQkZsLOy0z8xOgrCg1cyZf1651gSUX6Bh4u5syhigX9.', NULL, NULL, NULL, NULL, '2024-12-31 07:35:54'),
 (8, 'abanoub', 'hany', 'abanoub@gmail.com', '$2y$10$kqnS1iJWWMpLXyeP45NJaOrLF8Kj/ZyrVUA1/v9MGZAKs1jD/8ItW', NULL, NULL, NULL, NULL, '2024-12-31 08:42:23'),
-(9, 'Mohamed', 'Elsayed', 'mohamed.elsayed@gmail.com', '$2y$10$0eVKAYhWJnWZYBoEraM4KO4ksGzPWY33OZIhChWMFONcW3KdeB3X.', NULL, NULL, NULL, NULL, '2024-12-31 13:17:59');
+(9, 'Mohamed', 'Elsayed', 'mohamed.elsayed@gmail.com', '$2y$10$0eVKAYhWJnWZYBoEraM4KO4ksGzPWY33OZIhChWMFONcW3KdeB3X.', NULL, NULL, NULL, NULL, '2024-12-31 13:17:59'),
+(10, 'Ali', 'Ali', 'alihassanmagix2017@gmail.com', '$2y$10$fJKLdJxz1dxMUSa0/RMvsuLJc5TNLzGdBEeWJpMwt05j2x8/wJoQm', NULL, NULL, NULL, NULL, '2025-05-01 11:04:28');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees`
+--
+
+CREATE TABLE `employees` (
+  `EmployeeID` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `user` varchar(50) NOT NULL,
+  `PasswordHash` varchar(255) NOT NULL,
+  `RegistrationDate` datetime DEFAULT current_timestamp(),
+  `isAdmin` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`EmployeeID`, `name`, `user`, `PasswordHash`, `RegistrationDate`, `isAdmin`) VALUES
+(6, 'joe', 'joe', '$2y$10$YK6/DT.KNMIm8BIThE6/1.4mBm1EJ/QKCVICf8JerboEWHToccBce', '2025-05-18 22:31:46', 1);
 
 -- --------------------------------------------------------
 
@@ -139,23 +160,16 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`PaymentID`, `ReservationID`, `PaymentDate`, `Amount`, `PaymentMethod`, `CardNumber`, `ExpirationDate`, `CVC`) VALUES
-(3, 8, '2024-12-30 20:07:18', 1300.00, 'Credit Card', '4567456745674567', '10/29', '456'),
-(4, 9, '2024-12-30 20:12:46', 24700.00, 'Credit Card', '4567456745674567', '10/29', '456'),
-(5, 10, '2024-12-30 20:15:40', 24700.00, 'Credit Card', '4567456745674567', '10/29', '456'),
-(6, 11, '2024-12-30 20:26:31', 1500.00, 'Credit Card', '4567456745674567', '10/29', '456'),
-(7, 12, '2024-12-30 20:28:48', 7250.00, 'Credit Card', '4567456745674567', '10/29', '456'),
 (8, 13, '2024-12-30 20:33:18', 51840.00, 'Credit Card', '4567456745674567', '10/29', '456'),
 (9, 14, '2024-12-30 20:39:47', 3280.00, 'Credit Card', '4567456745674567', '10/29', '456'),
 (10, 15, '2024-12-30 21:23:53', 2560.00, 'Credit Card', '7894789478947894', '11/27', '437'),
 (11, 16, '2024-12-31 07:19:36', -2600.00, 'Credit Card', '88888888888888', '5855', '555'),
-(12, 17, '2024-12-31 07:26:29', 15250.00, 'Credit Card', '888888888', '2222', '555'),
 (13, 18, '2024-12-31 07:28:32', 7750.00, 'Credit Card', '99999999999999', '2222', '555'),
 (14, 19, '2024-12-31 07:29:35', 2850.00, 'Credit Card', '154661999588845', '1020', '541'),
 (15, 20, '2024-12-31 07:33:53', 8500.00, 'Credit Card', '5674567456744555', '10/29', '156'),
 (16, 21, '2024-12-31 08:47:05', 5200.00, 'Credit Card', '4567456745674567', '10/29', '456'),
 (17, 22, '2024-12-31 09:05:51', 5280.00, 'Credit Card', '1234123412341234', '10/29', '456'),
-(18, 23, '2024-12-31 10:01:24', -15060500.00, 'Credit Card', '3', 'w', 'e'),
-(19, 24, '2024-12-31 13:18:41', 600.00, 'Credit Card', '4567456745674567', '10/29', '456');
+(18, 23, '2024-12-31 10:01:24', -15060500.00, 'Credit Card', '3', 'w', 'e');
 
 -- --------------------------------------------------------
 
@@ -180,24 +194,16 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`ReservationID`, `CustomerID`, `CarID`, `ReservationDate`, `StartDate`, `EndDate`, `Status`, `CarModel`, `PlateID`) VALUES
-(7, 1, 4, '2024-12-30 20:04:23', '2024-12-29', '2025-01-05', 'Reserved', NULL, NULL),
-(8, 1, 4, '2024-12-30 20:07:18', '2024-12-29', '2025-01-05', 'Reserved', NULL, NULL),
-(9, 1, 4, '2024-12-30 20:12:46', '2025-01-01', '2025-01-20', 'Reserved', NULL, NULL),
-(10, 1, 4, '2024-12-30 20:15:40', '2025-01-01', '2025-01-20', 'Reserved', NULL, NULL),
-(11, 1, 19, '2024-12-30 20:26:31', '2025-01-01', '2025-01-11', 'Reserved', NULL, NULL),
-(12, 1, 10, '2024-12-30 20:28:48', '2025-01-01', '2025-01-30', 'Reserved', NULL, NULL),
 (13, 1, 7, '2024-12-30 20:33:18', '2025-01-01', '2025-01-25', 'Reserved', 'Pagani Huayra', 'JKL012'),
 (14, 1, 8, '2024-12-30 20:39:47', '2025-01-01', '2025-01-05', 'Reserved', 'BMW M3', 'MNO345'),
 (15, 1, 22, '2024-12-30 21:23:53', '2025-01-01', '2025-01-05', 'Reserved', 'BMW X6', 'CDE567'),
 (16, 1, 5, '2024-12-31 07:19:36', '2024-12-05', '2024-12-04', 'Reserved', 'Bugatti Chiron', 'DEF456'),
-(17, 1, 10, '2024-12-31 07:26:29', '2024-05-05', '2024-07-05', 'Reserved', 'Opel Corsa', 'STU901'),
 (18, 1, 16, '2024-12-31 07:28:32', '2024-12-12', '2024-12-17', 'Reserved', 'Lamborghini Gallardo', 'KLM789'),
 (19, 1, 23, '2024-12-31 07:29:35', '2024-12-12', '2024-12-15', 'Reserved', 'Porsche 918 Spyder', 'FGH890'),
 (20, 1, 9, '2024-12-31 07:33:53', '2025-01-05', '2025-01-10', 'Reserved', 'Aston Martin DB11', 'PQR678'),
 (21, 1, 4, '2024-12-31 08:47:05', '2025-01-01', '2025-01-05', 'Reserved', 'Mercedes Mclaren SLR', 'ABC123'),
 (22, 1, 14, '2024-12-31 09:05:51', '2025-01-01', '2025-01-05', 'Reserved', 'Ferrari F90', 'EFG123'),
-(23, 1, 4, '2024-12-31 10:01:24', '0034-12-23', '0003-04-05', 'Reserved', 'Mercedes Mclaren SLR', 'ABC123'),
-(24, 1, 19, '2024-12-31 13:18:41', '2025-01-01', '2025-01-05', 'Reserved', 'brilliance V6', 'TUV678');
+(23, 1, 4, '2024-12-31 10:01:24', '0034-12-23', '0003-04-05', 'Reserved', 'Mercedes Mclaren SLR', 'ABC123');
 
 --
 -- Indexes for dumped tables
@@ -212,7 +218,6 @@ ALTER TABLE `cars`
   ADD UNIQUE KEY `UNIQUE_CarModel` (`Model`),
   ADD UNIQUE KEY `UNIQUE_PlateID` (`PlateID`),
   ADD KEY `OfficeID` (`OfficeID`);
-  Add image_url VARCHAR(255) 
 
 --
 -- Indexes for table `customers`
@@ -220,6 +225,13 @@ ALTER TABLE `cars`
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`CustomerID`),
   ADD UNIQUE KEY `Email` (`Email`);
+
+--
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`EmployeeID`),
+  ADD UNIQUE KEY `user` (`user`);
 
 --
 -- Indexes for table `offices`
@@ -250,13 +262,19 @@ ALTER TABLE `reservations`
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `CarID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `CarID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `employees`
+--
+ALTER TABLE `employees`
+  MODIFY `EmployeeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `offices`
@@ -303,32 +321,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-  
---Admin
-CREATE TABLE employee (
-  EmployeeID int(11) NOT NULL,
-  name varchar(50) NOT NULL,
-  user varchar(100) NOT NULL,
-  PasswordHash varchar(255) NOT NULL,
-  RegistrationDate timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-ALTER TABLE employee
-  ADD PRIMARY KEY (EmployeeID),
-  ADD UNIQUE KEY user (user);
-
-
-ALTER TABLE employee
-  MODIFY EmployeeID int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
-
-CREATE TABLE IF NOT EXISTS employees (
-    EmployeeID INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    user VARCHAR(50) NOT NULL UNIQUE,
-    PasswordHash VARCHAR(255) NOT NULL,
-    RegistrationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
-    isAdmin TINYINT(1) DEFAULT 0
-);

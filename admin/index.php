@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h1>IMPACT MAKERS Admin</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="request/cars/index.php">Cars</a></li>
                     <li><a href="request/reservations/index.php">Bookings</a></li>
                     <li><a href="request/customers/index.php">Users</a></li>
