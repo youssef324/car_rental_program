@@ -206,7 +206,7 @@
           "dodge durango",
           "mercedes g class",
           "lamborghini urus",
-          "bmw x6",
+          "bmw x7",
         ];
         return suvModels.some((suvModel) => model.includes(suvModel));
       }
