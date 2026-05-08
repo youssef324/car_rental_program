@@ -75,7 +75,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="error"><?php echo htmlspecialchars($message); ?></div>
         <?php endif; ?>
     </div>
-    <?php else: ?>
+    <?php else: 
+        // Re-establish connection for dashboard stats if not already done
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        $totalCars = $conn->query("SELECT COUNT(*) FROM cars")->fetch_row()[0];
+        $totalBookings = $conn->query("SELECT COUNT(*) FROM reservations")->fetch_row()[0];
+        $totalCustomers = $conn->query("SELECT COUNT(*) FROM customers")->fetch_row()[0];
+        $totalRevenue = $conn->query("SELECT SUM(Amount) FROM payments")->fetch_row()[0] ?? 0;
+        $activeCars = $conn->query("SELECT COUNT(*) FROM cars WHERE Status = 'active'")->fetch_row()[0];
+        $conn->close();
+    ?>
         <div class="inner-header">
             <div class="inner-container">
         <body>
@@ -94,7 +103,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="child-1 child">
         <div class="container">
-            <h2>Welcome, <?php echo htmlspecialchars($_SESSION['admin_name']); ?> to the IMPACT MAKERS Admin Panel</h2>
+            <h2>Dashboard Overview</h2>
+            <div class="dashboard-grid">
+                <div class="stat-card">
+                    <h3>Total Cars</h3>
+                    <p class="stat-value"><?php echo $totalCars; ?></p>
+                    <p class="stat-label"><?php echo $activeCars; ?> Active</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Bookings</h3>
+                    <p class="stat-value"><?php echo $totalBookings; ?></p>
+                    <p class="stat-label">Total Reservations</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Customers</h3>
+                    <p class="stat-value"><?php echo $totalCustomers; ?></p>
+                    <p class="stat-label">Registered Users</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Revenue</h3>
+                    <p class="stat-value">$<?php echo number_format($totalRevenue, 2); ?></p>
+                    <p class="stat-label">Total Earnings</p>
+                </div>
+            </div>
         </div>
     </div>
     <div class="child-2 child">
