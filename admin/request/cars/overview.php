@@ -53,6 +53,7 @@ try {
                 <th>Plate ID</th>
                 <th>Type</th>
                 <th>Price/Day</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
             <?php foreach ($cars as $car): ?>
@@ -63,6 +64,7 @@ try {
                 <td><?= $car['PlateID'] ?></td>
                 <td><?= $car['Type'] ?></td>
                 <td><?= $car['PricePerDay'] ?></td>
+                <td><span class="status-light <?= strtolower($car['Status'] ?? 'active') ?>"><?= htmlspecialchars($car['Status'] ?? 'Active') ?></span></td>
                 <td>
                     <a href="?delete=<?= $car['CarID'] ?>" onclick="return confirm('Delete this car?')">Delete</a>
                 </td>
