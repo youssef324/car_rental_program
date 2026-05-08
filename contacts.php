@@ -1,3 +1,32 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['CustomerID'])) {
+    header("Location: index.php");
+    exit();
+}
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "carrentalsystem";
+
+try {
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8mb4");
+    
+    $customer_id = $_SESSION['CustomerID'];
+    $stmt = $conn->prepare("SELECT * FROM Customers WHERE CustomerID = ?");
+    $stmt->bind_param("i", $customer_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    $stmt->close();
+} catch (mysqli_sql_exception $e) {
+    die("Error: " . $e->getMessage());
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -228,7 +257,7 @@
             <a href="Dashboard.php" title="Cars">
                 <img src="Photos/car.png" alt="Cars" />
             </a>
-            <a href="contacts.html" title="Contacts">
+            <a href="contacts.php" title="Contacts">
                 <img src="Photos/mail.png" alt="Contact Us" />
             </a>
             <a href="./about_us.html" title="About Us">
@@ -243,7 +272,6 @@
     <h1 style="text-align: center; margin-bottom: 30px; color: #358faa">
         Contact Us
     </h1>
-
     <div class="container">
         <div class="form-section">
             <h2>Send us a message</h2>
@@ -253,15 +281,15 @@
             <form id="contact-form">
                 <div>
                     <label for="first-name">First Name</label>
-                    <input type="text" name="first_name" id="first-name" placeholder="Enter your first name" required />
+                    <input type="text" name="first_name" id="first-name" placeholder="Enter your first name" value="<?php echo htmlspecialchars($user['FirstName'] ?? ''); ?>" required />
                 </div>
                 <div>
                     <label for="last-name">Last Name</label>
-                    <input type="text" name="last_name" id="last-name" placeholder="Enter your last name" required />
+                    <input type="text" name="last_name" id="last-name" placeholder="Enter your last name" value="<?php echo htmlspecialchars($user['LastName'] ?? ''); ?>" required />
                 </div>
                 <div>
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Enter your email" required />
+                    <input type="email" name="email" id="email" placeholder="Enter your email" value="<?php echo htmlspecialchars($user['Email'] ?? ''); ?>" required />
                 </div>
                 <div>
                     <label for="phone">Contact Details</label>

@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Update car status to "Rented"
             $sqlUpdateCar = "UPDATE Cars SET Status = 'Rented' WHERE CarID = $carID";
             if ($conn->query($sqlUpdateCar) === TRUE) {
-                echo "<script>alert('Reservation confirmed! Total Payment: $$totalAmount'); window.location.href = 'contacts.html';</script>";
+                echo "<script>alert('Reservation confirmed! Total Payment: $$totalAmount'); window.location.href = 'contacts.php';</script>";
             } else {
                 echo "Error updating car status: " . $conn->error;
             }
@@ -252,7 +252,7 @@ $conn->close();
             <a href="./Dashboard.php" title="Cars">
                 <img src="Photos/car.png" alt="Cars" />
             </a>
-            <a href="./contacts.html" title="Contacts">
+            <a href="./contacts.php" title="Contacts">
                 <img src="Photos/mail.png" alt="Contact Us" />
             </a>
             <a href="./about_us.html" title="About Us">

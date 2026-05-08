@@ -86,7 +86,7 @@
       <a href="./Dashboard.php" title="Cars">
         <img src="Photos/car.png" alt="Cars" />
       </a>
-      <a href="./contacts.html" title="Contacts">
+      <a href="./contacts.php" title="Contacts">
         <img src="Photos/mail.png" alt="Contact Us" />
       </a>
       <a href="./about_us.html" title="About Us">
@@ -109,6 +109,7 @@
       while ($car = $result->fetch_assoc()):
         ?>
         <div class="card">
+          <div class="car-status <?php echo strtolower($car['Status']); ?>"><?php echo ucfirst($car['Status']); ?></div>
           <img src="<?php echo $car['image_url']; ?>" alt="<?php echo $car['Model']; ?>" id="image_url" class="card-image" />
           <div class="card-content">
             <h3 class="car-model"><?php echo $car['Model']; ?></h3>
