@@ -31,20 +31,57 @@
 ```
 car_rental_program/
 │
-├── about_us.html         # About the team and project
-├── contacts.html         # Contact form and info
-├── Dashboard.php         # Car listing and search
-├── details.php           # Car details & reservation/payment form
-├── index.php             # Login page
-├── signup.php            # Registration page
-├── profile.php           # User profile & update info
-├── update_info.php       # Profile update handler
-├── main.js               # Client-side validation & logic
+├── admin/
+│   │
+│   ├── request/
+│   │   │
+│   │   ├── cars/
+│   │   │   ├── edit.php
+│   │   │   ├── index.php
+│   │   │   └── overview.php
+│   │   │
+│   │   ├── customers/
+│   │   │   ├── edit.php
+│   │   │   ├── index.php
+│   │   │   └── overview.php
+│   │   │
+│   │   └── reservations/
+│   │       ├── add.php
+│   │       ├── index.php
+│   │       └── overview.php
+│   │
+│   ├── style_admin/
+│   │   ├── choose-styl1.css
+│   │   ├── LoginStyle.css
+│   │   ├── request-style.css
+│   │   └── style.css
+│   │
+│   ├── add.php
+│   ├── check_cars.php
+│   ├── check_tables.php
+│   ├── header.php
+│   ├── index.php
+│   ├── logout.php
+│   └── sidebar.php
+│
+├── photos/
+│
 ├── style/
-│   └── about_us.css      # Custom styles
-├── Photos/               # Images & icons
-├── db_connection.php     # Database connection logic
-└── README.md             # This file!
+│   ├── about_us.css
+│   ├── dashboard.css
+│   └── style.css
+│
+├── about_us.html
+├── carrentalsystem.sql
+├── change_password.php
+├── contacts.php
+├── Dashboard.php
+├── db_connection.php
+├── details.php
+├── index.html
+├── index.php
+├── main.js
+└── profile.php
 ```
 
 ---
