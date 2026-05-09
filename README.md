@@ -1,6 +1,9 @@
-# 🚗 Car Rental System
+# 🚗 Car Rental Management System
 
+<div align="center">
 Welcome to the **Car Rental System** — a modern, full-featured web application for renting cars online, built with PHP, MySQL, HTML, CSS, and JavaScript.
+</div>
+
 
 ![Car Rental Banner](photos/about_us.jpg)
 
