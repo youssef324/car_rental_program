@@ -1,5 +1,5 @@
 <?php
-session_start();
+include '../../header.php';
 
 $servername = "localhost";
 $username = "root";
@@ -14,14 +14,12 @@ try {
     $conn = new mysqli($servername, $username, $password, $dbname);
     $conn->set_charset("utf8mb4");
 
-    // DELETE customer
     if (isset($_GET['delete'])) {
-        $id = $_GET['delete'];
+        $id = (int)$_GET['delete'];
         $conn->query("DELETE FROM customers WHERE CustomerID = $id");
-        $successMessage = "Customer deleted.";
+        $successMessage = "Customer deleted successfully.";
     }
 
-    // Fetch all customers
     $result = $conn->query("SELECT * FROM customers");
     $customers = $result->fetch_all(MYSQLI_ASSOC);
 
@@ -30,45 +28,42 @@ try {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
+<div class="form-container">
+    <h2>Customer Management</h2>
 
-<head>
-    <title>Customer Overview</title>
-    <link rel="stylesheet" href="../../style/request-style.css">
-</head>
+    <?php if ($errorMessage): ?>
+        <div class="error"><?= htmlspecialchars($errorMessage) ?></div>
+    <?php elseif ($successMessage): ?>
+        <div class="success"><?= htmlspecialchars($successMessage) ?></div>
+    <?php endif; ?>
 
-<body>
-    <div class="form-container">
-        <h2>Customer Overview</h2>
-        <?php if ($errorMessage): ?>
-            <div class="error"><?= htmlspecialchars($errorMessage) ?></div>
-        <?php elseif ($successMessage): ?>
-            <div class="success"><?= htmlspecialchars($successMessage) ?></div>
-        <?php endif; ?>
-
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Actions</th>
-            </tr>
-            <?php foreach ($customers as $cust): ?>
+    <div class="admin-table-container">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($customers as $cust): ?>
                 <tr>
                     <td><?= htmlspecialchars($cust['CustomerID'] ?? 'N/A') ?></td>
-                    <td><?= htmlspecialchars($cust['FirstName'] ?? 'N/A') ?></td>
-                    <td><?= htmlspecialchars($cust['PhoneNumber'] ?? 'N/A') ?></td>
+                    <td><?= htmlspecialchars($cust['FirstName'] . ' ' . ($cust['LastName'] ?? '')) ?></td>
+                    <td><?= htmlspecialchars($cust['phoneNumber'] ?? 'N/A') ?></td>
                     <td><?= htmlspecialchars($cust['Email'] ?? 'N/A') ?></td>
                     <td>
-                        <a href="?delete=<?= $cust['CustomerID'] ?>"
-                            onclick="return confirm('Delete this customer?')">Delete</a>
+                        <a href="edit.php?id=<?= $cust['CustomerID'] ?>" class="btn-manage" style="padding: 6px 12px; font-size: 0.8rem; margin-right: 5px;">Edit</a>
+                        <a href="?delete=<?= $cust['CustomerID'] ?>" class="btn-toggle" style="padding: 6px 12px; font-size: 0.8rem;" onclick="return confirm('Delete this customer?')">Delete</a>
                     </td>
                 </tr>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </tbody>
         </table>
     </div>
-</body>
+</div>
 
-</html>
+<?php include '../../footer.php'; ?>

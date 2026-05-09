@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include '../../header.php'; ?>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Choose an Action</title>
-    <link rel="stylesheet" href="../../style/choose-style.css" />
-</head>
-
-<body>
-    <div class="container">
-        <h1>Welcome! Choose an Option</h1>
-        <div class="button-group">
-            <a href="add.php" class="option-button">Add Data</a>
-            <a href="overview.php" class="option-button">View Overview</a>
-        </div>
+<div class="container">
+    <h1>Reservations Management</h1>
+    <div class="button-group">
+        <a href="add.php" class="option-button">Create Reservation</a>
+        <a href="overview.php" class="option-button">View All Bookings</a>
     </div>
-</body>
+</div>
 
-</html>
+<?php include '../../footer.php'; ?>
